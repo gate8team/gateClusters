@@ -1,0 +1,1 @@
+module.exports.SimpleText = require('./simpletext');
