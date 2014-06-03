@@ -24,7 +24,7 @@ SimpleText.prototype.slitWords = function(removeEmptyWords){
     return this;
 };
 
-SimpleText.prototype.getWordsCount = function(){
+SimpleText.prototype.countWords = function(){
     if (this.wordsSplitted instanceof Array) {
         var that = this;
         this.wordsSplitted.forEach(function(el){
@@ -35,6 +35,20 @@ SimpleText.prototype.getWordsCount = function(){
             }
         });
     }
+    return this;
+};
+
+SimpleText.prototype.countPercentageRatio = function(){
+    if (!(Object.keys(this.wordsCounted).length === 0)){
+        var that = this,
+            sum = 0;
+        Object.keys(this.wordsCounted).forEach(function(el){
+            sum += that.wordsCounted[el];
+        });
+        Object.keys(this.wordsCounted).forEach(function(el){
+            that.wordsCounted[el] /= sum;
+        });
+    }else{console.log(this.wordsCounted);}
     return this;
 };
 
